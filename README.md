@@ -16,3 +16,4 @@ To do list:
 =================
 <!--ts-->
 *  Come up with an idea of what website we want to develop
+*  Assigning initial tasks in Gantt chart.
