@@ -21,6 +21,6 @@ Weekly Review
 To do list:
 =================
 <!--ts-->
-*  Megha: Coming up with the business rules
-*  Greg:  Coming up with the operations for the admin
+*  Megha: Uploading the erd diagram
+*  Greg:  Helping setup the database
 *  Megha & Danni: Working on the erd diagram
