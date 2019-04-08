@@ -21,6 +21,9 @@ Weekly Review
 To do list:
 =================
 <!--ts-->
-*  Megha: Uploading the erd diagram
-*  Greg:  Helping setup the database
-*  Megha & Danni: Working on the erd diagram
+*  Greg:  make some changes in business rules. Refer ERD
+*  split up tasks 
+   1) create 
+   2) read
+   3) update
+   4) delete
