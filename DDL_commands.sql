@@ -1,4 +1,7 @@
 
+show databases ;
+use team_b_db;
+select * from cart;
 
 CREATE TABLE team_b_db.user (
   user_id INT AUTO_INCREMENT NOT NULL,
@@ -15,13 +18,13 @@ CREATE TABLE team_b_db.user (
 );
 
 CREATE TABLE team_b_db.category (
-  category_id INT NOT NULL,
+  category_id INT AUTO_INCREMENT NOT NULL,
   category_name VARCHAR(45) NOT NULL,
   PRIMARY KEY (category_id)
 );
 
 CREATE TABLE team_b_db.product (
-  product_id INT NOT NULL,
+  product_id INT AUTO_INCREMENT NOT NULL,
   product_title VARCHAR(45) NOT NULL,
   price DECIMAL(5,2) NOT NULL,
   image LONGBLOB NOT NULL,
@@ -31,7 +34,7 @@ CREATE TABLE team_b_db.product (
 );
 
 CREATE TABLE team_b_db.order (
-  order_id INT NOT NULL,
+  order_id INT  AUTO_INCREMENT NOT NULL,
   quantity INT NOT NULL,
   purchase_date DATE NOT NULL,
   User_user_id INT NOT NULL,
@@ -53,7 +56,7 @@ CREATE TABLE  team_b_db.quantity_size (
 );
 
 CREATE TABLE  team_b_db.cart (
-  cart_id INT NOT NULL,
+  cart_id INT AUTO_INCREMENT NOT NULL,
   product_product_id INT NOT NULL,
   User_user_id INT NOT NULL,
   PRIMARY KEY (cart_id),
