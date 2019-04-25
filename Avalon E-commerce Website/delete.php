@@ -47,13 +47,14 @@
                 <input type="text" class="form-control" name="product_id" id="product_id" placeholder="e.g., 1234">
 
             </div>
-            <button type="submit" name="deleteFromPaper" class="btn btn-primary">Submit</button>
+            <button type="submit" name="deleteFromProduct" class="btn btn-primary">Submit</button>
 
         </form>
 
         <?php
         $msg="";
-        if(isset($_POST['deleteFromPaper'])) {
+        if(isset($_POST['deleteFromProduct
+        '])) {
             require_once('PHP/connection.php');
             $product_id = $_POST['product_id'];
             if (empty($product_id) || $product_id === "") {
