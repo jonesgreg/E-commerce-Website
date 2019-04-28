@@ -28,7 +28,7 @@
 						<span class="sr-only">Menu</span>
 						<span class="glyphicon glyphicon-menu-hamburger"></span>
 						</button>
-						<a class="navbar-brand" href="/">E-Commerce Site</a>
+						<a class="navbar-brand" href="/">Avalon Clothing Store</a>
 					</div>
 
 					<div id="navbar-cart" class="navbar-collapse collapse">
@@ -116,7 +116,7 @@ $(document).ready(function(){
 		var action = "add";
 		if(product_quantity > 0)
 		{
-			$.teamb({
+			$.ajax({
 				url:"action.php",
 				method:"POST",
 				data:{product_id:product_id, product_name:product_name, product_price:product_price, product_quantity:product_quantity, action:action},
@@ -138,7 +138,7 @@ $(document).ready(function(){
 		var action = 'remove';
 		if(confirm("Are you sure you want to remove this product?"))
 		{
-			$.teamb({
+			$.ajax({
 				url:"action.php",
 				method:"POST",
 				data:{product_id:product_id, action:action},
@@ -158,7 +158,7 @@ $(document).ready(function(){
 
 	$(document).on('click', '#clear_cart', function(){
 		var action = 'empty';
-		$.teamb({
+		$.ajax({
 			url:"action.php",
 			method:"POST",
 			data:{action:action},
