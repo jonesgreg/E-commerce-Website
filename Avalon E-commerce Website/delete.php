@@ -1,4 +1,7 @@
-<html lang="en">
+
+<? ob_start(); ?>
+<?php session_start(); ?>
+<!DOCTYPE html><html lang="en">
 <head>
 
     <meta charset="utf-8">
@@ -39,7 +42,7 @@
         <form method="post" action="delete.php">
 
             <div class="form-group">
-                <label for="exampleFormControlInput1">Product I.D.
+                <label for="product_id">Product I.D.
                     <?php if(isset($_GET['msg']) && $_GET['msg']!="") { ?>
 
                     <?php } ?>
@@ -47,14 +50,14 @@
                 <input type="text" class="form-control" name="product_id" id="product_id" placeholder="e.g., 1234">
 
             </div>
+
             <button type="submit" name="deleteFromProduct" class="btn btn-primary">Submit</button>
 
         </form>
 
         <?php
         $msg="";
-        if(isset($_POST['deleteFromProduct
-        '])) {
+        if(isset($_POST['deleteFromProduct'])) {
             require_once('PHP/connection.php');
             $product_id = $_POST['product_id'];
             if (empty($product_id) || $product_id === "") {
@@ -63,25 +66,31 @@
             }else {
                 require_once('PHP/connection.php');
                 $sql = "SELECT * from product where product_id = '$product_id'";
+
                 $result = $dbc->query($sql);
                 if ($result -> num_rows > 0) {
                     // I.D. exists
                     // now, delete
-                    $sql = "DELETE FROM product where product_id = '$product_id'";
-                    if ($dbc->query($sql) === TRUE) {
-                        echo "Record deleted successfully";
+                    $delete_product ="CALL deleteProduct(?)";
+                    $stmt = mysqli_prepare($dbc, $delete_product);
+                    mysqli_stmt_bind_param($stmt, 's',$product_id);
+                    mysqli_stmt_execute($stmt);
+                    $affected_rows = mysqli_stmt_affected_rows($stmt);
+                  if($affected_rows == 1){
+                    mysqli_stmt_close($stmt);
+                    mysqli_close($dbc);
+                  echo "Record deleted successfully";
                     } else {
                         echo "Error deleting record: " . $dbc->error;
                     }
-                    $dbc->query($sql);
-                    $dbc->close();
-                }else{
+
+                }else {
                     echo "The given product I.D. does not exist";
                 }
             }
+
         }
         ?>
-    </div>
 
 </main><!-- /.container -->
 
