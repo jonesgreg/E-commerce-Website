@@ -29,7 +29,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home
+            <a class="nav-link" href="index.php">Home
               <span class="sr-only">(current)</span>
             </a>
 
@@ -73,7 +73,7 @@
             </div>
           </div>
           <input type="submit" class="btn btn-primary btn-block" value="Login" name="Submit">
-        
+
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">Register an Account</a>
@@ -114,7 +114,7 @@
 
           mysqli_stmt_close($stmt);
           mysqli_close($dbc);
-          header('Location: admin_dashboard.html?status=true');
+          header('Location: admin_dashboard.html');
         } else {
         	echo mysqli_error($dbc);
           mysqli_stmt_close($stmt);
