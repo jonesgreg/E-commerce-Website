@@ -10,7 +10,7 @@ include('PHP/connection.php');
 $sql = "SELECT product_id, product_title, price, quantity, image FROM PRODUCT_TABLE";
 
 
-$result = $conn->query($sql);
+$result = $dbc->query($sql);
 
 if($result-> num_rows > 0) {
 while($row = $result-> fetch_assoc())  {
